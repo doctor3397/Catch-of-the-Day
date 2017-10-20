@@ -10,8 +10,10 @@ class StorePicker extends React.Component {
     // Stop the form from submiting/ reloading the page
     event.preventDefault();
     // Grab the text from the box
-    console.log(this.storeInput.value);
+    // console.log(this.storeInput.value);
+    const storeId = this.storeInput.value;
     // Transition from / to /store/:storeId
+    this.context.router.transitionTo(`/store/${storeId}`);
   }
 
   render() {
@@ -24,6 +26,11 @@ class StorePicker extends React.Component {
       </form>
     )
   }
+}
+
+// Context: pass router from the parent
+StorePicker.contextTypes = {
+  router: React.PropTypes.object
 }
 
 export default StorePicker;
