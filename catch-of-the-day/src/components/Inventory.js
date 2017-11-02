@@ -15,6 +15,8 @@ class Inventory extends React.Component {
     // console.log(e.target.name, e.target.value)
 
     // Update it with the new data
+    // const updatedFish = Object.assign({}, fish) // take a copy of the fish
+    // {...fish}) returns the fish object {desc: "Everyones favorite white fish. We will cut it to the size you need and ship it.", image: "https://i.istockimg.com/file_thumbview_approve/362…stock-photo-36248396-blackened-cajun-sea-bass.jpg", name: "xxPacific Halibut", price: 1724, status: "available"}
     const updatedFish = {
       ...fish,
       [e.target.name]: e.target.value // Overwrite the changes
@@ -41,6 +43,7 @@ class Inventory extends React.Component {
           onChange={(e) => this.handleChange(e, key)} ></textarea>
         <input name="image" value={fish.image} type="text" placeholder="Fish Image"
           onChange={(e) => this.handleChange(e, key)} />
+        <button onClick={() => this.props.removeFish(key)}>Remove Fish</button>
       </div>
     )
   }
